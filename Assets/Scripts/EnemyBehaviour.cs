@@ -28,6 +28,14 @@ public class EnemyBehaviour : MonoBehaviour
         if(collision.gameObject.CompareTag(BULLET_TAG) && isAlive == true )
         {
             Debug.Log("Collision Detected");
+            isAlive = false;
+            Destroy(gameObject);
+        }
+
+        if(collision.gameObject.CompareTag(PLAYER_TAG) && isAlive == true )
+        {
+            Debug.Log("Collision with player");
+            isAlive = false;
             Destroy(gameObject);
         }
     }
