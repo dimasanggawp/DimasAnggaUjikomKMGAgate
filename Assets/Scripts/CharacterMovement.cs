@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private Renderer gamePlayArea;
+    [SerializeField] private GameObject misileGameObject;
     private float minX, maxX, yPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +26,7 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        Fire();
     }
 
     void PlayerMovement()
@@ -32,5 +34,13 @@ public class CharacterMovement : MonoBehaviour
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float x = Mathf.Clamp(cursorPosition.x, minX, maxX);
         transform.position = new Vector3(x, yPos, 0);
+    }
+
+    void Fire()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Instantiate(misileGameObject, transform.position, transform.rotation);
+        }
     }
 }

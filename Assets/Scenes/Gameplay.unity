@@ -278,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ebf5acb1ea74ef59c4410b755fed11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0
   gamePlayArea: {fileID: 483212866}
+  misileGameObject: {fileID: 541522805805429811, guid: 8c37b66fa4e3846bda455fa9a7388872, type: 3}
 --- !u!1001 &6018714741164903868
 PrefabInstance:
   m_ObjectHideFlags: 0
