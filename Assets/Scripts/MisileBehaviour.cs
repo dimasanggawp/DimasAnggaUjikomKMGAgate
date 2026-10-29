@@ -1,14 +1,18 @@
 using UnityEngine;
+using System;
+using System.Collections;
 
 public class MisileBehaviour : MonoBehaviour
 {
     [SerializeField] private float misileSpeed = 50f;
     [SerializeField] private float misileLifeTime = 3f;
     private const string ENEMY_TAG = "Enemy";
+    public event Action<int> OnScoreChanged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Destroy(gameObject, misileLifeTime);
+        
     }
 
     // Update is called once per frame
@@ -26,8 +30,11 @@ public class MisileBehaviour : MonoBehaviour
     {
         if(collision.gameObject.CompareTag(ENEMY_TAG))
         {
+            OnScoreChanged?.Invoke(1);
             Destroy(gameObject);
         }
     }
+
+    
 
 }
